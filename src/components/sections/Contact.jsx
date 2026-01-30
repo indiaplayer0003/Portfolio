@@ -1,12 +1,13 @@
 import { memo } from 'react';
 import Section from '../ui/Section';
 import GlassCard from '../ui/GlassCard';
+import MagneticButton from '../ui/MagneticButton';
 import { motion } from 'framer-motion';
 
 const Contact = memo(() => {
     return (
         <Section id="contact" className="min-h-[50vh] flex flex-col justify-center text-center">
-            <GlassCard className="p-12 md:p-20 max-w-3xl mx-auto">
+            <GlassCard className="p-12 md:p-20 max-w-3xl mx-auto shadow-z4">
                 <motion.h2
                     className="text-4xl md:text-6xl font-bold mb-8"
                     initial={{ opacity: 0, y: 20 }}
@@ -21,13 +22,14 @@ const Contact = memo(() => {
                     Have a project in mind? Looking for a partner to build something incredible? Let's chat.
                 </p>
 
-                <a
+                <MagneticButton
                     href="mailto:hello@example.com"
-                    className="inline-block px-10 py-4 rounded-full bg-white text-black font-bold text-lg hover:bg-white/90 transition-colors hover:scale-105 shadow-[0_0_30px_rgba(255,255,255,0.2)]"
-                    style={{ willChange: 'transform' }}
+                    variant="cta"
+                    magneticStrength={0.15}
+                    magneticRadius={80}
                 >
                     Say Hello
-                </a>
+                </MagneticButton>
             </GlassCard>
         </Section>
     );

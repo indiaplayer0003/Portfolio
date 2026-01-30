@@ -2,6 +2,7 @@ import { memo, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import GlassCard from '../ui/GlassCard';
 import Section from '../ui/Section';
+import MagneticButton from '../ui/MagneticButton';
 
 const heroVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -19,7 +20,7 @@ const Hero = memo(() => {
     }), []);
 
     return (
-        <Section className="min-h-[90vh] flex flex-col justify-center items-center text-center">
+        <Section id="hero" className="min-h-[90vh] flex flex-col justify-center items-center text-center">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -33,7 +34,7 @@ const Hero = memo(() => {
                     aria-hidden="true"
                 />
 
-                <GlassCard className="p-12 md:p-20 relative border-white/20 hover:border-white/30 transition-colors">
+                <GlassCard className="p-12 md:p-20 relative border-white/20 hover:border-white/30 transition-colors shadow-z4">
                     <motion.h1
                         className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-white to-white/60 tracking-tight"
                         variants={heroVariants}
@@ -55,24 +56,18 @@ const Hero = memo(() => {
                     </motion.p>
 
                     <motion.div
-                        className="mt-10 flex gap-4 justify-center"
+                        className="mt-10 flex gap-4 justify-center flex-wrap"
                         variants={heroVariants}
                         initial="hidden"
                         animate="visible"
                         custom={0.45}
                     >
-                        <a
-                            href="#projects"
-                            className="px-8 py-3 rounded-full bg-white text-black font-semibold hover:bg-white/90 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.3)]"
-                        >
+                        <MagneticButton href="#projects" variant="primary">
                             View Work
-                        </a>
-                        <a
-                            href="#contact"
-                            className="px-8 py-3 rounded-full bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 transition-colors backdrop-blur-sm"
-                        >
+                        </MagneticButton>
+                        <MagneticButton href="#contact" variant="secondary">
                             Contact Me
-                        </a>
+                        </MagneticButton>
                     </motion.div>
                 </GlassCard>
             </motion.div>
